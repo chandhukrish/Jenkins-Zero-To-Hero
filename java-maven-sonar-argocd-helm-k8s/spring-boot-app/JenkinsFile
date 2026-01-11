@@ -13,20 +13,10 @@ pipeline {
       }
     }
 
-stage('Maven and install') {
-  tools {
+    stage('Build and Test') {
+ tools {
     maven 'maven'
   }
-  steps {
-    sh 'ls -ltr'
-    sh '''
-      cd java-maven-sonar-argocd-helm-k8s/spring-boot-app
-      mvn clean package
-    '''
-  }
-}
-
-    stage('Build and Test') {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
