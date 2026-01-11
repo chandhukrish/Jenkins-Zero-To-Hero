@@ -15,7 +15,7 @@ pipeline {
 
     stage('Build and Test') {
  tools {
-    maven 'maven-3.9.11'
+    maven 'maven 3.9.11'
   }
       steps {
         sh 'ls -ltr'
