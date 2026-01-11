@@ -13,7 +13,7 @@ pipeline {
       }
     }
 
-stage('Build and Test') {
+stage('Maven and install') {
   tools {
     maven 'maven-3.9.11'
   }
