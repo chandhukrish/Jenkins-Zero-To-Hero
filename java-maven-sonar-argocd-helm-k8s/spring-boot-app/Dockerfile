@@ -26,6 +26,6 @@ RUN mvn clean package -DskipTests
 FROM openjdk:11-jre-slim
 WORKDIR /opt/app
 COPY --from=build /app/target/spring-boot-web.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+
 
 
