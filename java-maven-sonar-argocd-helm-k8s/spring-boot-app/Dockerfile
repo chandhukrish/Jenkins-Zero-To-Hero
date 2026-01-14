@@ -15,6 +15,20 @@
 #ENTRYPOINT ["java","-jar","app.jar"]
 
 
+FROM eclipse-temurin:11-jdk-alpine
+
+RUN apk add --no-cache \
+    maven \
+    git \
+    docker-cli \
+    bash
+
+ENV MAVEN_HOME=/usr/share/java/maven-3
+ENV PATH=$MAVEN_HOME/bin:$PATH
+
+WORKDIR /workspace
+
+
 # Use Alpine-based OpenJDK 11 image
 FROM eclipse-temurin:11-jdk-alpine
 
