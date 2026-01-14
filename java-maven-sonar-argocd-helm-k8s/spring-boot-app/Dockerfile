@@ -26,14 +26,6 @@ FROM eclipse-temurin:11-jdk-alpine
 # Install Maven and bash (bash is optional, but helpful for debugging)
 RUN apk add --no-cache maven bash
 
-RUN apk add --no-cache \
-    maven \
-    git \
-    docker-cli \
-    bash
-
-ENV MAVEN_HOME=/usr/share/java/maven-3
-ENV PATH=$MAVEN_HOME/bin:$PATH
 
 # Set the working directory inside the container
 WORKDIR /opt/app
