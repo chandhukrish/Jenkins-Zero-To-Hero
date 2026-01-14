@@ -15,7 +15,16 @@
 #ENTRYPOINT ["java","-jar","app.jar"]
 
 
+
+
+
+
+
+# Use Alpine-based OpenJDK 11 image
 FROM eclipse-temurin:11-jdk-alpine
+
+# Install Maven and bash (bash is optional, but helpful for debugging)
+RUN apk add --no-cache maven bash
 
 RUN apk add --no-cache \
     maven \
@@ -25,15 +34,6 @@ RUN apk add --no-cache \
 
 ENV MAVEN_HOME=/usr/share/java/maven-3
 ENV PATH=$MAVEN_HOME/bin:$PATH
-
-WORKDIR /workspace
-
-
-# Use Alpine-based OpenJDK 11 image
-FROM eclipse-temurin:11-jdk-alpine
-
-# Install Maven and bash (bash is optional, but helpful for debugging)
-RUN apk add --no-cache maven bash
 
 # Set the working directory inside the container
 WORKDIR /opt/app
